@@ -16,6 +16,14 @@
 
                     You are logged in!
                 </div>
+
+                <div class="card-body">
+                    <form action="/upload" method="post">
+                        @csrf
+                        <input type="file" name="image"/>
+                        <input type="submit" class="upload"/>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
