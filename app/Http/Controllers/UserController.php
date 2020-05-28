@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\User;
+use App\User;
 
 class UserController extends Controller
 {
@@ -16,8 +16,15 @@ class UserController extends Controller
         // $users =DB::select('select * from users');
         // return $users;
 
-        $usr = new User();
-        dd($usr);
+        $data = [
+            'name' => 'Kayongo R',
+            'email' => 'kayong@gmail.com',
+            'password' => 'password',
+         ];
+         User::create($data);
+
+        $user = User::all();
+        return $user;
         return view('home');
     }
 }
