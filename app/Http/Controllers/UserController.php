@@ -9,9 +9,9 @@ use App\User;
 class UserController extends Controller
 {
     public function uploadAvatar(Request $request){
-        if($request->hasFile('image')){
+        if($request->hasFile('image'))
+        {
             dd($request->image->getClientOriginalName());
-
         }
         // $request->image->store('images');
         return 'uploaded';
