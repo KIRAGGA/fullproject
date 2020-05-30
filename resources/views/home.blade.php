@@ -21,7 +21,7 @@
                     <form action="/upload" method="post">
                         @csrf
                         <input type="file" name="image"/>
-                        <input type="submit" class="upload"/>
+                        <input type="submit" value="Upload"/>
                     </form>
                 </div>
             </div>
