@@ -11,21 +11,18 @@ class UserController extends Controller
     public function uploadAvatar(Request $request){
         if($request->hasFile('image'))
         {
-            dd($request->image->getClientOriginalName());
+            $filename = $request->image->getClientOriginalName();
+            $request->image->storeAs('images', $filename, 'public');
+            User::find(1)->update(['avatar' => filename]);
         }
-        // $request->image->store('images');
-        return 'uploaded';
+        
+        return redirect()->back();
     }
 
     
     public function index()
     {
-        // DB::insert('insert into users (name, email,password) values (?,?,?)',
-        // [
-        //     'reagan','reagan@gmail.com','password',
-        // ]);
-        // $users =DB::select('select * from users');
-        // return $users;
+        
 
         $data = [
             'name' => 'Kayongo R',
