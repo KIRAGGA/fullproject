@@ -15,7 +15,7 @@ class UserController extends Controller
         if($request->hasFile('image'))
         {
             User::uploadAvatar($request->image);
-            
+
             return redirect()->back()->with('message', 'Image uploaded');
         }
 
@@ -25,8 +25,7 @@ class UserController extends Controller
     public function index()
       
     {
-        
-
+       
         $data = [
             'name' => 'Kayongo R',
             'email' => 'kayong@gmail.com',
