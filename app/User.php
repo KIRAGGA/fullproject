@@ -19,6 +19,25 @@ class User extends Authenticatable
         'name', 'email', 'password', 'avatar',
     ];
 
+    public static function uploadAvatar($image)
+    {
+        
+        $filename = $image->getClientOriginalName();
+
+            (new Self())->deleteOldImage();
+            $image->storeAs('images', $filename, 'public');
+            auth()->user()->update(['avatar' => $filename]);
+    }
+
+    public function deleteOldImage(){
+        {
+            if ($this->avatar) {
+                    
+                Storage::delete('/public/images/' . $this->avatar);
+            }
+        }
+    }
+
     // protected $guarded = [];
     /**
      * The attributes that should be hidden for arrays.
