@@ -12,6 +12,10 @@ class UserController extends Controller
         if($request->hasFile('image'))
         {
             $filename = $request->image->getClientOriginalName();
+
+            if (auth()->user()->avatar) {
+                Storage::delete('/public/images' . auth()->user()-avatar);
+            }
             $request->image->storeAs('images', $filename, 'public');
             auth()->user()->update(['avatar' => $filename]);
         }
