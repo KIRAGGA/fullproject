@@ -9,10 +9,11 @@
 </head>
 <body>
     <div class="text-center pt-10">
-        <form method="post" action="todo/create" class="py-5">
+        <h2 class="text-2x1"> What to do?</h2>
+        <form method="post" action="todos/create" class="py-5">
             @csrf
-            <input type="text">
-            <input type="submit" value="">
+            <input type="text" name="title" class="py-2 px-2 border rounded">
+            <input type="submit" value="create" class="p-2 border rounded">
         </form>
 </div>
 </body>
