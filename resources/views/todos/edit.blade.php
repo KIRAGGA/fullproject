@@ -9,7 +9,7 @@
         @csrf
         @method('patch')
         <input type="text" name="title" value="{{$todo->title}}" class="py-2 px-2 border rounded">
-        <input type="submit" value="create" class="p-2 border rounded">
+        <input type="submit" value="update" class="p-2 border rounded">
     </form>
     <a href="/todos">Back</a>
 </div>

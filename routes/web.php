@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/todos', 'TodoController@index');
+Route::get('/todos', 'TodoController@index')->name('todo.index');
 
 Route::get('/todos/create', 'TodoController@create');
 
