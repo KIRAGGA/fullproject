@@ -4,7 +4,7 @@
 
 <div class="text-center pt-10">
    
-    <h2 class="text-2x1"> Update Todo list</h2>
+    <h1 class="text-2x1 border-b pb-4">Update Todo list</h1>
 
     <x-alert/>
     <form method="post" action="{{route('todo.update', $todo->id)}}" class="py-5">
