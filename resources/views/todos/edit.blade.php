@@ -1,4 +1,6 @@
+@extends('todos.layout')
 
+@section('content')
 
 <div class="text-center pt-10">
    
@@ -13,3 +15,4 @@
     </form>
     <a href="/todos">Back</a>
 </div>
+@endsection
