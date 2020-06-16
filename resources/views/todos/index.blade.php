@@ -4,7 +4,7 @@
 @foreach ($todos as $todo)
 
 <li class="flex">
-<p>{{$todo->title}} <a href="/todos/id/edit" class="bg-orange-400 cursor-pointer rounded text-white">Edit</a></p>
+<p>{{$todo->title}} <a href="{{'/todos/'.$todo->id.'/edit'}}" class="bg-orange-400 cursor-pointer rounded text-white">Edit</a></p>
 
 </li>
 @endforeach
