@@ -3,9 +3,16 @@
 <ul>
 @foreach ($todos as $todo)
 
-<li class="flex">
-<p>{{$todo->title}} <a href="{{'/todos/'.$todo->id.'/edit'}}" class="bg-orange-400 cursor-pointer rounded text-white">Edit</a></p>
+    <div class="flex justify-between border-b pb-4">
+        {{$todo->title}} 
+        <a href="{{'/todos/'.$todo->id.'/edit'}}" class="bg-orange-400 cursor-pointer rounded text-white">
+        <span class="fas fa-edit px-2"></span>
+        </a>
+        @include('todos.completed-button')
+    </div>
 
-</li>
+</form>
+
+
 @endforeach
 </ul>
