@@ -34,9 +34,10 @@ class TodoController extends Controller
         return view ('todos.edit', compact('todo'));
     }
 
-    public function update(Todo $todo)
+    public function update(Request $request, Todo $todo)
     {
-        
+        dd($request->all());
+
     }
 }
 
