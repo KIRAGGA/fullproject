@@ -3,8 +3,9 @@
 @section('content')
 <div class="flex justify-center border-b pb-4">
         <h1 class="text-2x1">All Todo list</h1>
-        <a href="/todos/create" class="mx-5 py-1 px-1 cursor-pointer rounded text-white bg-blue-400">
-            Create New</a>
+        <a href="/todos/create" class="mx-5 py-2 cursor-pointer text-white text-blue-400">
+            <span class="fas fa-plus-circle"></span>    
+        </a>
     </div>
         <ul class="my-5">
         @foreach ($todos as $todo)
@@ -29,11 +30,13 @@
                    
                      <span class="fas fa-check text-green-400 px-2"></span>
                 @else
-                    <span onclick="event.preventDefault(); document.getElementById('form-complete-'{{$todo->id}}).submit"
+                    <span onclick="event.preventDefault();
+                     document.getElementById('form-complete-{{$todo->id}}')
+                    .submit()"
                      class="fas fa-check  text-gray-300  cursor-pointer px-2"></span>
 
                     <form style="dispay:none" action="{{route('todo.complete', $todo->id)}}" 
-                        id="{{'form-complete'.$todo->id}}" method="post">
+                        id="{{'form-complete-'.$todo->id}}" method="post">
                         @csrf
                         @method('put')
                     </form>
