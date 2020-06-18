@@ -27,7 +27,7 @@ Route::delete('/todos/{todo}/incomplete', 'TodoController@incomplete')->name('to
 
 Route::put('/todos/{todo}/complete', 'TodoController@complete')->name('todo.complete');
 
-Route::delete('/todos/{todo}/delete', 'TodoController@delete')->name('todo.dlete');
+Route::delete('/todos/{todo}/delete', 'TodoController@delete')->name('todo.delete');
 
 Route::get('/', function () {
     return view('welcome');

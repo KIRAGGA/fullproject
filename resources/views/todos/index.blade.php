@@ -32,10 +32,12 @@
                         <span class="fas fa-edit px-2"></span>
                 </a>
                 
-                        <span class="fas fa-trash text-red-500 cursor-pointer px-2" 
+                        <span class="fas fa-trash text-red-500 cursor-pointer px-2"
+                                                
                         onclick="event.preventDefault();
-                        document.getElementById('form-complete-{{$todo->id}}')
-                       .submit()"></span>
+                            if(confirm('Do you want to delete this?')){
+                            document.getElementById('form-delete-{{$todo->id}}')
+                            .submit()}"></span>
 
                         <form style="dispay:none" action="{{route('todo.delete', $todo->id)}}" 
                             id="{{'form-delete-'.$todo->id}}" method="post">
