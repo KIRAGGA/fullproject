@@ -1,13 +1,14 @@
 @extends('todos.layout')
 
 @section('content')
-<div class="flex justify-center border-b pb-4">
+<div class="flex justify-between border-b pb-4 px-4">
         <h1 class="text-2x1">All Todo list</h1>
         <a href="/todos/create" class="mx-5 py-2 cursor-pointer text-white text-blue-400">
             <span class="fas fa-plus-circle"></span>    
         </a>
     </div>
         <ul class="my-5">
+            <x-alert/>
         @foreach ($todos as $todo)
 
             <div class="flex justify-between border-b pb-4">
@@ -28,9 +29,9 @@
 
                 @if($todo->completed)
                    
-                     <span class="fas fa-check text-green-400 px-2" 
+                     <span class="fas fa-check text-green-400 cursor-pointer px-2" 
                      onclick="event.preventDefault();
-                     document.getElementById('form-complete-{{$todo->id}}')
+                     document.getElementById('form-incomplete-{{$todo->id}}')
                     .submit()"></span>
 
                     <form style="dispay:none" action="{{route('todo.incomplete', $todo->id)}}" 
