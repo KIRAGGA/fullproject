@@ -28,7 +28,17 @@
 
                 @if($todo->completed)
                    
-                     <span class="fas fa-check text-green-400 px-2"></span>
+                     <span class="fas fa-check text-green-400 px-2" 
+                     onclick="event.preventDefault();
+                     document.getElementById('form-complete-{{$todo->id}}')
+                    .submit()"></span>
+
+                    <form style="dispay:none" action="{{route('todo.incomplete', $todo->id)}}" 
+                        id="{{'form-incomplete-'.$todo->id}}" method="post">
+                        @csrf
+                        @method('delete')
+                    </form>
+
                 @else
                     <span onclick="event.preventDefault();
                      document.getElementById('form-complete-{{$todo->id}}')
