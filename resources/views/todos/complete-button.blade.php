@@ -11,7 +11,8 @@
         
 @else
 <span onclick="event.preventDefault();
-    document.getElementById('form-complete-{{$todo->id}}').submit()" class="fas fa-check texxt-grey-300 cursor-pointer px-2"></span>
+    document.getElementById('form-complete-{{$todo->id}}').submit()" 
+    class="fas fa-check texxt-grey-300 cursor-pointer px-2"></span>
 
 <form style="dispay:none" action="{{route('todo.complete', $todo->id)}}" 
     id="{{'form-complete'.$todo->id}}" method="post">
