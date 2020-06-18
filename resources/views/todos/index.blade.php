@@ -10,7 +10,13 @@
         @foreach ($todos as $todo)
 
             <div class="flex justify-between border-b pb-4">
-                <p>{{$todo->title}} </p>
+                @if ($todo->completed)
+                    <p class="line-through">{{$todo->title}}</p>
+
+                @else
+                <p>{{$todo->title}}</p>
+
+                @endif
 
                 <div>
                     
@@ -20,9 +26,16 @@
                 </a>
 
                 @if($todo->completed)
+                   
                      <span class="fas fa-check text-green-400 px-2"></span>
                 @else
-                    <span class="fas fa-check  text-gray-300  cursor-pointer px-2"></span>
+                    <span onclick="event.preventDefault(); console.log('hello')" class="fas fa-check  text-gray-300  cursor-pointer px-2"></span>
+
+                    <form style="dispay:none" action="{{route('todo.complete', $todo->id)}}" method="post">
+                        @csrf
+                        @method('put')
+                    </form>
+
                 @endif
 
             </div>
