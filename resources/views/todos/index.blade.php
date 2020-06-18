@@ -12,6 +12,11 @@
         @foreach ($todos as $todo)
 
             <div class="flex justify-between border-b pb-4">
+
+                <div>
+                    @include('todos.complete-button')
+                </div>
+                
                 @if ($todo->completed)
                     <p class="line-through">{{$todo->title}}</p>
 
@@ -26,36 +31,21 @@
                     class="text-orange-400 cursor-pointer text-white">
                         <span class="fas fa-edit px-2"></span>
                 </a>
+                
+                        <span class="fas fa-trash text-red-500 cursor-pointer px-2" 
+                        onclick="event.preventDefault();
+                        document.getElementById('form-complete-{{$todo->id}}')
+                       .submit()"></span>
 
-                @if($todo->completed)
-                   
-                     <span class="fas fa-check text-green-400 cursor-pointer px-2" 
-                     onclick="event.preventDefault();
-                     document.getElementById('form-incomplete-{{$todo->id}}')
-                    .submit()"></span>
-
-                    <form style="dispay:none" action="{{route('todo.incomplete', $todo->id)}}" 
-                        id="{{'form-incomplete-'.$todo->id}}" method="post">
-                        @csrf
-                        @method('delete')
-                    </form>
-
-                @else
-                    <span onclick="event.preventDefault();
-                     document.getElementById('form-complete-{{$todo->id}}')
-                    .submit()"
-                     class="fas fa-check  text-gray-300  cursor-pointer px-2"></span>
-
-                    <form style="dispay:none" action="{{route('todo.complete', $todo->id)}}" 
-                        id="{{'form-complete-'.$todo->id}}" method="post">
-                        @csrf
-                        @method('put')
-                    </form>
-                    
-                @endif
+                        <form style="dispay:none" action="{{route('todo.delete', $todo->id)}}" 
+                            id="{{'form-delete-'.$todo->id}}" method="post">
+                            @csrf
+                            @method('delete')
+                        </form>
+                
 
             </div>
-                {{-- @include('todos.completed-button') --}}
+                
             </div>
 
         </form>
