@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex justify-between border-b pb-4 px-4">
         <h1 class="text-2x1">All Todo list</h1>
-        <a href="/todos/create" class="mx-5 py-2 cursor-pointer text-white text-blue-400">
+        <a href="{{route('todo.create')}}" class="mx-5 py-2 cursor-pointer text-white text-blue-400">
             <span class="fas fa-plus-circle"></span>    
         </a>
     </div>
@@ -27,7 +27,7 @@
 
                 <div>
                     
-                <a href="{{'/todos/'.$todo->id.'/edit'}}" 
+                <a href="{{route('todo.edit',$todo->id)}}" 
                     class="text-orange-400 cursor-pointer text-white">
                         <span class="fas fa-edit px-2"></span>
                 </a>
@@ -39,7 +39,7 @@
                             document.getElementById('form-delete-{{$todo->id}}')
                             .submit()}"></span>
 
-                        <form style="dispay:none" action="{{route('todo.delete', $todo->id)}}" 
+                        <form style="dispay:none" action="{{route('todo.destroy', $todo->id)}}" 
                             id="{{'form-delete-'.$todo->id}}" method="post">
                             @csrf
                             @method('delete')
