@@ -15,8 +15,17 @@
         <x-alert/>
         <form method="post" action="{{route('todo.store')}}" class="py-5">
             @csrf
-            <input type="text" name="title" class="py-2 px-2 border rounded">
-            <input type="submit" value="create" class="p-2 border rounded">
+            <div class="py-1">
+                <input type="text" name="title" class="py-2 px-2 border rounded">
+            </div>
+
+            <div class="py-1">
+                <textarea type="text" name="description" placeholder="Description" class="py-2 px-2 rounded border"></textarea>
+            </div>
+            <div class="py-1">
+                <input type="submit" value="create" class="p-2 border rounded">
+            </div>
+            
         </form>
     
     </div>

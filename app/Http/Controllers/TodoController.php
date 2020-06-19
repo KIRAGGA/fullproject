@@ -27,11 +27,17 @@ class TodoController extends Controller
         return view ('todos.create');
     }
 
+    public function show (Todo $todo)
+    {
+        return view(todo.show);
+    }
+
+
     public function store(TodoCreateRequest $request) 
     {
         auth()->user()->todos()->create($request->all());
         // Todo::create($request->all());
-        return redirect()->back()->with('message', 'Todo created sucessfully');
+        return redirect(route('todo.index'))->with('message', 'Todo created sucessfully');
     }
 
     public function edit(Todo $todo) // Using route model binding
@@ -66,7 +72,7 @@ class TodoController extends Controller
     public function destroy(Todo $todo)
     {
         $todo->delete();
-        return redirect()->back()->with('message', 'Task deleted');
+        return redirect(route('todo.index'))->with('message', 'Task deleted');
     }
 }
 

@@ -10,52 +10,50 @@
         <ul class="my-5">
             <x-alert/>
 
-            
-        @forelse ($todos as $todo)
+         @forelse ($todos as $todo)
 
             <div class="flex justify-between border-b pb-4">
 
                 <div>
                     @include('todos.complete-button')
                 </div>
-                
-                @if ($todo->completed)
-                    <p class="line-through">{{$todo->title}}</p>
+                    
+                    @if ($todo->completed)
+                        <p class="line-through">{{$todo->title}}</p>
 
-                @else
-                <p>{{$todo->title}}</p>
+                    @else
+            <a class="cursor-pointer" href="{{route('todo.show', $todo->id)}}">{{$todo->title}}</a>
 
-                @endif
-
+                    @endif
                 <div>
                     
-                <a href="{{route('todo.edit',$todo->id)}}" 
-                    class="text-orange-400 cursor-pointer text-white">
-                        <span class="fas fa-edit px-2"></span>
-                </a>
-                
-                        <span class="fas fa-trash text-red-500 cursor-pointer px-2"
-                                                
-                        onclick="event.preventDefault();
-                            if(confirm('Do you want to delete this?')){
-                            document.getElementById('form-delete-{{$todo->id}}')
-                            .submit()}"></span>
+                    <a href="{{route('todo.edit',$todo->id)}}" 
+                        class="text-orange-400 cursor-pointer text-white">
+                            <span class="fas fa-edit px-2"></span>
+                    </a>
+                    
+                            <span class="fas fa-trash text-red-500 cursor-pointer px-2"
+                                                    
+                            onclick="event.preventDefault();
+                                if(confirm('Do you want to delete this?')){
+                                document.getElementById('form-delete-{{$todo->id}}')
+                                .submit()}"></span>
 
-                        <form style="dispay:none" action="{{route('todo.destroy', $todo->id)}}" 
-                            id="{{'form-delete-'.$todo->id}}" method="post">
-                            @csrf
-                            @method('delete')
-                        </form>
+                            <form style="dispay:none" action="{{route('todo.destroy', $todo->id)}}" 
+                                id="{{'form-delete-'.$todo->id}}" method="post">
+                                @csrf
+                                @method('delete')
+                            </form>
                 
 
+                </div>
+                
             </div>
-                
-            </div>
 
-        </form>
+            </form>
             @empty
                 <p>No task available, please create one.</p>    
-        @endforelse
+         @endforelse
     </ul>
 </div>
     
