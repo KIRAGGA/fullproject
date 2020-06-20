@@ -23,7 +23,6 @@
                 <textarea type="text" name="description" placeholder="Description" class="py-2 px-2 rounded border"></textarea>
             </div>
 
-            
 
             @livewire('step')
 
@@ -32,11 +31,7 @@
             </div>
             
         </form>
-        @livewire('counter')
-
-
-
-        @livewireScripts
+       
     </div>
    
 @endsection
