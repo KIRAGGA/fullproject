@@ -13,7 +13,7 @@
                 <input type="text" name="step[]" 
                     placeholder="{{'Describe step '.($step)}}" class="py-1 px-2 rounded border"/>   
                     
-                    <span class="fas fa-times text-red-400 p-2" wire:click="remove({{$loop->index}})"></span>
+                    <span class="fas fa-times text-red-400 p-2" wire:click="remove({{$step}})"></span>
             </div>
             @endforeach
 </div>
