@@ -9,6 +9,7 @@
     
     @livewireStyles
     <title>Todos</title>
+    
 </head>
 <body>
     <div class="text-center flex justify-center pt-10">
