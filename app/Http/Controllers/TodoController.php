@@ -62,14 +62,20 @@ class TodoController extends Controller
     {
        $todo->update(['title' => $request->title]);
 
-       if($request->stepName)
-       {
+       if($request->stepName) {
         foreach ($request->stepName as $key => $value) 
         {
             $id = $request->stepId[$key];
-            $step = Step::find($id);
+
+            if(!$id)
+            {
+                $todo->steps()->create(['name' => $value]);
+                }
+                $step = Step::find($id);
             
-            $steps->update(['name' => $step]);
+                $step->update(['name' => $value]);
+        
+            
         }
        }
 
