@@ -27,7 +27,7 @@
         </div>
 
         <div class="py-2">
-            @livewire('step')
+            @livewire('edit-step', ['steps'=> $todo->steps])
         </div>
 
         <div class="py-1">
