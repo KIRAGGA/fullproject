@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\TodoCreateRequest;
 use Illuminate\Support\Facades\Validator;
 use App\Todo;
+use App\Step;
 
 class TodoController extends Controller
 {
@@ -36,6 +37,7 @@ class TodoController extends Controller
     public function store(TodoCreateRequest $request) 
     {
        $todo = auth()->user()->todos()->create($request->all());
+
        if($request->step)
        {
         foreach ($request->step as $step) 
@@ -59,6 +61,18 @@ class TodoController extends Controller
     public function update(TodoCreateRequest $request, Todo $todo)
     {
        $todo->update(['title' => $request->title]);
+
+       if($request->stepName)
+       {
+        foreach ($request->stepName as $key => $value) 
+        {
+            $id = $request->stepId[$key];
+            $step = Step::find($id);
+            
+            $steps->update(['name' => $step]);
+        }
+       }
+
        return redirect(route('todo.index'))->with('message', 'updated');
     }
 

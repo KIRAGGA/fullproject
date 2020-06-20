@@ -10,10 +10,13 @@
 
         @foreach($steps as $step)
             <div class="flex justify-center py-2" wire:key="{{$loop->index}}">
-                <input type="text" name="step[]" 
-            placeholder="{{'Describe step '.($loop->index+1)}}" value="{{$step->name}}" class="py-1 px-2 rounded border"/>   
+                <input type="text" name="stepName[]" placeholder="{{'Describe step '.($loop->index+1)}}" 
+                value="{{$step['name']}}" class="py-1 px-2 rounded border"/>   
                     
-                    <span class="fas fa-times text-red-400 p-2" wire:click="remove({{$loop->index}})"></span>
+            <input type="hidden" name="stepId[]" value="{{$step['id']}}"/>   
+                    
+                    <span class="fas fa-times text-red-400 p-2" wire:click=
+                    "remove({{$loop->index}})"></span>
             </div>
             @endforeach
 </div>

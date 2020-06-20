@@ -11,11 +11,11 @@ class EditStep extends Component
 
     public function mount($steps)
     {
-        $this->steps = $steps;
+        $this->steps = $steps->toArray();
     }
     public function increment()
         {
-            $this->steps[] = count($this->steps);
+            $this->stepsName[] = count($this->steps);
         }
 
     public function remove($index)

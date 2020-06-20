@@ -31,7 +31,7 @@
         </div>
 
         <div class="py-1">
-            <input type="submit" value="create" class="p-2 border rounded">
+            <input type="submit" value="update" class="p-2 border rounded">
         </div>
 
     </form>
