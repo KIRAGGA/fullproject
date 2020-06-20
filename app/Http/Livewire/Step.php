@@ -15,7 +15,7 @@ class Step extends Component
 
     public function remove($index)
     {
-        unset($this->steps[$ndex]);
+        unset($this->steps[$index]);
     }
     public function render()
     {
