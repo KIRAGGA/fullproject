@@ -9,9 +9,9 @@
 
 
         @foreach($steps as $step)
-            <div class="flex justify-center py-2">
+            <div class="flex justify-center py-2" wire:key="{{$step}}">
                 <input type="text" name="step[]" 
-                    placeholder="{{'Describe step '.($step)}}" class="py-1 px-2 rounded border"/>   
+                    placeholder="{{'Describe step '.($step+1)}}" class="py-1 px-2 rounded border"/>   
                     
                     <span class="fas fa-times text-red-400 p-2" wire:click="remove({{$step}})"></span>
             </div>

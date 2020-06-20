@@ -26,6 +26,10 @@
             </textarea>
         </div>
 
+        <div class="py-2">
+            @livewire('step')
+        </div>
+
         <div class="py-1">
             <input type="submit" value="create" class="p-2 border rounded">
         </div>
