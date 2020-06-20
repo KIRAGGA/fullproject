@@ -38,7 +38,11 @@
             </div>
             
         </form>
-    
+        @livewire('counter')
+
+
+
+        @livewireScripts
     </div>
    
 @endsection
